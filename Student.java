@@ -17,8 +17,7 @@ public class Student extends User{
     private Username username;
     private Password password;
     private Scanner input = new Scanner(System.in);
-    private Hashtable<String, String> login = new Hashtable();
-    private ArrayList<String> al = new ArrayList(); 
+    Database d = new Database();
 
     public Student(){
         System.out.println("Please enter your first name");
@@ -29,7 +28,7 @@ public class Student extends User{
         lastname = s;
         System.out.println("Please enter a username");
         s = input.nextLine();
-        while(al.contains(s) == true)
+        while(d.al.contains(s) == true)
         {
             System.out.println("This username is already taken. Please enter a new username");
             s = input.nextLine();
@@ -42,7 +41,7 @@ public class Student extends User{
             s = input.nextLine();
         }
         password = new Password(s);
-        login.put(username.getUsername(), password.getPassword());
+        d.login.put(username.getUsername(), password.getPassword());
         System.out.println("Would you like to add a phone number? (yes/no)");
         s = input.nextLine();
         if(s.equalsIgnoreCase("yes"))
@@ -62,7 +61,7 @@ public class Student extends User{
         String un = input.nextLine();
         System.out.println("Enter your password");
         String pass = input.nextLine();
-        if ((login.get(un)).equals(pass))
+        if ((d.login.get(un)).equals(pass))
         {
             System.out.println("Successfully Logged In");
         }
