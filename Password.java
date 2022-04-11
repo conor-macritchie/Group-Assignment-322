@@ -15,10 +15,6 @@ public class Password {
     {
         password = s;
     }
-    public int getLength()
-    {
-        return password.length();
-    }
     public String getPassword()
     {
         return password;

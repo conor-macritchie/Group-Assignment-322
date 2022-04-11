@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package groupproject1;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Hashtable;
 /**
@@ -17,6 +18,7 @@ public class Student extends User{
     private Password password;
     private Scanner input = new Scanner(System.in);
     private Hashtable<String, String> login = new Hashtable();
+    private ArrayList<String> al = new ArrayList(); 
 
     public Student(){
         System.out.println("Please enter your first name");
@@ -27,22 +29,19 @@ public class Student extends User{
         lastname = s;
         System.out.println("Please enter a username");
         s = input.nextLine();
-        username = new Username(s);
-        while(username.isUsernameUnique() == false)
+        while(al.contains(s) == true)
         {
             System.out.println("This username is already taken. Please enter a new username");
             s = input.nextLine();
-            username = new Username(s);
         }
+        username = new Username(s);
         System.out.println("Please enter a password");
-        s = input.nextLine();
-        password = new Password(s);
-        while(password.getLength() < 8)
+        while(s.length() < 8)
         {
             System.out.println("Password is too short. Please enter a new password (8 characters or more)");
             s = input.nextLine();
-            password = new Password(s);
         }
+        password = new Password(s);
         login.put(username.getUsername(), password.getPassword());
         System.out.println("Would you like to add a phone number? (yes/no)");
         s = input.nextLine();
