@@ -17,7 +17,7 @@ public class Student extends User{
     private Username username;
     private Password password;
     private Scanner input = new Scanner(System.in);
-    Database d = new Database();
+    private Database d = Database.getInstance();
 
     public Student(){
         System.out.println("Please enter your first name");

@@ -11,10 +11,13 @@ import java.util.*;
  */
 public class Username {
     private String username;
+    private Database d = Database.getInstance();
     
     public Username(String s)
     {
         username = s;
+        d.al.add(s);
+        
     }
 
     public String getUsername()
